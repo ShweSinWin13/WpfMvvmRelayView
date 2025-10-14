@@ -12,6 +12,49 @@
     </UserControl.DataContext>
     
     <Grid>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="View 2"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition/>
+            <RowDefinition Height="20"/> 
+        </Grid.RowDefinitions>
+        
+        <Grid Row="0">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="View 2 (ListView)"/>
+        </Grid>
+        
+        <Grid Row="1">
+            <Menu>
+                <MenuItem
+                    Header="Edit (Menu)">
+                    <MenuItem
+                        Header="Delete"
+                        Command="{Binding DeleteCmd}"
+                        CommandParameter="{x:Reference listView}">
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </Grid>
+        
+        <Grid Row="2">
+            <ListView
+                x:Name="listView"
+                ItemsSource="{Binding Data}"
+                SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"/>
+        </Grid>
+        
+        <Grid Row="3">
+            <StackPanel
+                Orientation="Horizontal">
+                <TextBox
+                    x:Name="tb"
+                    Width="100"/>
+                <Button
+                    Content="Add"
+                    Command="{Binding AddCmd}"
+                    CommandParameter="{x:Reference tb}"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

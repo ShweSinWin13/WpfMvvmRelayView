@@ -21,17 +21,21 @@
         <!--Buttons-->
         <Grid Grid.Column="0">
             <StackPanel>
+                <!--Getting style from static resources-->
                 <Button 
                     Content="View 1"
                     Margin="10"
-                    Background="Yellow"
+                    Style="{StaticResource GoldenBtn}"
                     Command="{Binding View1Command}"/>
+                
+                <!--Getting style from static resources-->
                 <Button 
                     Content="View 2"
                     Margin="10"
-                    Background="Green"
+                    Style="{StaticResource ForestBtn}"
                     Command="{Binding View2Command}"/>
                 
+                <!--Manual Styling. We don't want this!-->
                 <Button 
                     Content="View 3"
                     Margin="10"

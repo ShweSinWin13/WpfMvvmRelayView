@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:vm="clr-namespace:WpfMvvmRelayView.ViewModel"
+             xmlns:model="clr-namespace:WpfMvvmRelayView.Model"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300"
              Background="Red">
@@ -12,6 +13,67 @@
     </UserControl.DataContext>
     
     <Grid>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="View 3"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Row="0">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="View 3 (DataGrid/Table)"/>
+        </Grid>
+        
+        <Grid Row="1">
+            <Menu>
+                <MenuItem
+                    Header="Edit (Menu)">
+                    <MenuItem
+                        Header="Read Only"
+                        IsCheckable="True"
+                        IsChecked="{Binding IsChecked}"
+                        Command="{Binding CheckCmd}"/>
+                    <MenuItem
+                        Header="Delete Selected"
+                        Command="{Binding DeleteCmd}"
+                        CommandParameter="{x:Reference dataGrid}"/>
+                </MenuItem>
+            </Menu>
+        </Grid>
+        
+        <Grid Row="2">
+            <DataGrid
+                x:Name="dataGrid"
+                SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
+                CanUserSortColumns="False"
+                IsReadOnly="{Binding IsChecked, Mode=TwoWay}"
+                ItemsSource="{Binding Dt}"/>
+        </Grid>
+        
+        <Grid Row="3">
+            <StackPanel
+                Orientation="Vertical">
+                <StackPanel
+                    Orientation="Horizontal">
+                    <TextBlock
+                        Text="1. Name: "/>
+                    <TextBox
+                        Text="{Binding Name}"
+                        Width="50"/>
+                </StackPanel>
+                <StackPanel
+                    Orientation="Horizontal">
+                    <TextBlock
+                        Text="2. Age: "/>
+                    <TextBox
+                        Text="{Binding Age}"
+                        Width="50"/>
+                </StackPanel>
+                <Button
+                    Content="Add"
+                    Height="20"
+                    Command="{Binding AddCmd}"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

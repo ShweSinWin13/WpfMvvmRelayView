@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="GoldenBtn" TargetType="Button">
+        <Setter Property="Background" Value="Yellow"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontWeight" Value="ExtraBlack"/>
+        <Setter Property="FontFamily" Value="/Fonts/TTF/#TLC Mink"/>
+        <Setter Property="Padding" Value="10"/>
+    </Style>
+    
+    <Style x:Key="ForestBtn" TargetType="Button">
+        <Setter Property="Background" Value="ForestGreen"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontWeight" Value="ExtraBlack"/>
+        <Setter Property="Padding" Value="10"/>
+    </Style>
+    
+    <Style x:Key="View1TextBlockStyle" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+</ResourceDictionary>

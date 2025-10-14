@@ -13,6 +13,8 @@
     </UserControl.DataContext>
     
     <Grid>
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="View 1"/>
+        <TextBlock 
+            Style="{StaticResource View1TextBlockStyle}"
+            Text="{Binding Text}"/>
     </Grid>
 </UserControl>

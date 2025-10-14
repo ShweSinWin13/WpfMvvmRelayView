@@ -52,6 +52,7 @@
             <SubType>Designer</SubType>
         </ApplicationDefinition>
         <Compile Include="Command\RelayCommand.cs" />
+        <Compile Include="Model\DataGridBehavior.cs" />
         <Compile Include="ViewModel\MainVM.cs" />
         <Compile Include="ViewModel\View1VM.cs" />
         <Compile Include="ViewModel\View2VM.cs" />
@@ -78,6 +79,7 @@
             <DependentUpon>MainWindow.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Page Include="Resources\Styles\Default.xaml" />
         <Page Include="View\View1.xaml" />
         <Page Include="View\View2.xaml" />
         <Page Include="View\View3.xaml" />
@@ -97,7 +99,12 @@
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
-        <None Include="App.config"/>
+        <None Include="App.config" />
+    </ItemGroup>
+    <ItemGroup>
+      <Resource Include="Fonts\TTF\TLC_Mink.TTF">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
 </Project>

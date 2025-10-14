@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\WpfProjects\WpfMvvmRelayView\WpfMvvmRelayView\obj\Debug\
+E:\Sample\WpfMvvmRelayView\WpfMvvmRelayView\obj\Debug\
 WpfMvvmRelayView
 none
 false
 DEBUG;TRACE
-E:\WpfProjects\WpfMvvmRelayView\WpfMvvmRelayView\App.xaml
-4-1318833761
+E:\Sample\WpfMvvmRelayView\WpfMvvmRelayView\App.xaml
+5-654816587
 
-13-1927814349
+14-816637504
 9-1753732648
-MainWindow.xaml;View\View1.xaml;View\View2.xaml;View\View3.xaml;
+MainWindow.xaml;Resources\Styles\Default.xaml;View\View1.xaml;View\View2.xaml;View\View3.xaml;
 
 False
 
