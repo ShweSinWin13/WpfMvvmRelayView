@@ -41,6 +41,12 @@
                     Margin="10"
                     Background="Red"
                     Command="{Binding View3Command}"/>
+                
+                <Button 
+                    Content="View 4"
+                    Margin="10"
+                    Background="Blue"
+                    Command="{Binding View4Command}"/>
             </StackPanel>
         </Grid>
         

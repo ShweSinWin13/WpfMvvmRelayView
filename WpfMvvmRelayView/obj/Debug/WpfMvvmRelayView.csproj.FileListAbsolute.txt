@@ -45,3 +45,5 @@ E:\Sample\WpfMvvmRelayView\WpfMvvmRelayView\obj\Debug\WpfMvvmRelayView.csproj.Ge
 E:\Sample\WpfMvvmRelayView\WpfMvvmRelayView\obj\Debug\WpfMvvmRelayView.csproj.CoreCompileInputs.cache
 E:\Sample\WpfMvvmRelayView\WpfMvvmRelayView\obj\Debug\WpfMvvmRelayView.exe
 E:\Sample\WpfMvvmRelayView\WpfMvvmRelayView\obj\Debug\WpfMvvmRelayView.pdb
+E:\Sample\WpfMvvmRelayView\WpfMvvmRelayView\obj\Debug\View\View4.g.cs
+E:\Sample\WpfMvvmRelayView\WpfMvvmRelayView\obj\Debug\View\View4.baml
