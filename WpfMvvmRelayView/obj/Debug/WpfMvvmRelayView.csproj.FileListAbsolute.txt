@@ -47,3 +47,4 @@ E:\Sample\WpfMvvmRelayView\WpfMvvmRelayView\obj\Debug\WpfMvvmRelayView.exe
 E:\Sample\WpfMvvmRelayView\WpfMvvmRelayView\obj\Debug\WpfMvvmRelayView.pdb
 E:\Sample\WpfMvvmRelayView\WpfMvvmRelayView\obj\Debug\View\View4.g.cs
 E:\Sample\WpfMvvmRelayView\WpfMvvmRelayView\obj\Debug\View\View4.baml
+E:\Sample\WpfMvvmRelayView\WpfMvvmRelayView\obj\Debug\Resources\Styles\DataGridStyle.baml
