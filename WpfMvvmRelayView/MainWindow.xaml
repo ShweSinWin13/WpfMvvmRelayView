@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:WpfMvvmRelayView.ViewModel"
+        xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     
@@ -11,52 +12,123 @@
         <vm:MainVM/>
     </Window.DataContext>
     
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
-        
-        <!--Buttons-->
-        <Grid Grid.Column="0">
-            <StackPanel>
-                <!--Getting style from static resources-->
-                <Button 
-                    Content="View 1"
-                    Margin="10"
-                    Style="{StaticResource GoldenBtn}"
-                    Command="{Binding View1Command}"/>
+    <Border CornerRadius="30" Background="#EFF2F7" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- Left Menu Buttons -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
                 
-                <!--Getting style from static resources-->
-                <Button 
-                    Content="View 2"
-                    Margin="10"
-                    Style="{StaticResource ForestBtn}"
-                    Command="{Binding View2Command}"/>
+                <Button Style="{StaticResource topButton}" HorizontalAlignment="Left" Margin="20 28 0 35">
+                    <icon:PackIconMaterial Kind="Menu" Width="15"/>
+                </Button>
                 
-                <!--Manual Styling. We don't want this!-->
-                <Button 
-                    Content="View 3"
-                    Margin="10"
-                    Background="Red"
-                    Command="{Binding View3Command}"/>
-                
-                <Button 
-                    Content="View 4"
-                    Margin="10"
-                    Background="Blue"
-                    Command="{Binding View4Command}"/>
-            </StackPanel>
+                <Border Grid.Row="1" Background="#623ED0" CornerRadius="0 25 0 30">
+                    <DockPanel>
+                        <!-- Menu Buttons -->
+                        <StackPanel DockPanel.Dock="Top">
+                            <!-- <Button Style="{StaticResource menuButton}" -->
+                            <!--         Content="View 1" -->
+                            <!--         Margin="10" -->
+                            <!--         Command="{Binding View1Command}"> -->
+                            <!--      -->
+                            <!-- </Button> -->
+                            
+                            <Button Style="{StaticResource menuButton}">
+                                <StackPanel Orientation="Horizontal">
+                                    <icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="View 1"></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            
+                            <Button Style="{StaticResource menuButton}">
+                                <StackPanel Orientation="Horizontal">
+                                    <icon:PackIconMaterial Kind="BookEdit" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="View 2"></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            
+                            <Button Style="{StaticResource menuButton}">
+                                <StackPanel Orientation="Horizontal">
+                                    <icon:PackIconMaterial Kind="Account" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="View 3"></TextBlock>
+                                </StackPanel>
+                            </Button>
+                            
+                            <Button Style="{StaticResource menuButton}">
+                                <StackPanel Orientation="Horizontal">
+                                    <icon:PackIconMaterial Kind="File" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="View 4"></TextBlock>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </DockPanel>
+                </Border>
+            </Grid>
+            
+                <!--Grid Splitter-->
+                <GridSplitter Grid.Column="1" Background="Black" Width="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            
+                <!--View-->
+                <Grid Grid.Column="2">
+                    <ContentControl
+                        Content="{Binding CurrentView}"/>
+                </Grid>
         </Grid>
-        
-        <!--Grid Splitter-->
-        <GridSplitter Grid.Column="1" Background="Black" Width="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-
-        <!--View-->
-        <Grid Grid.Column="2">
-            <ContentControl
-                Content="{Binding CurrentView}"/>
-        </Grid>
-    </Grid>
+    </Border>
+    <!-- <Grid> -->
+    <!--     <Grid.ColumnDefinitions> -->
+    <!--         <ColumnDefinition Width="*"/> -->
+    <!--         <ColumnDefinition Width="Auto"/> -->
+    <!--         <ColumnDefinition Width="3*"/> -->
+    <!--     </Grid.ColumnDefinitions> -->
+    <!--      -->
+    <!--     ~1~Buttons@1@ -->
+    <!--     <Grid Grid.Column="0"> -->
+    <!--         <StackPanel> -->
+    <!--             ~1~Getting style from static resources@1@ -->
+    <!--             <Button  -->
+    <!--                 Content="View 1" -->
+    <!--                 Margin="10" -->
+    <!--                 Style="{StaticResource GoldenBtn}" -->
+    <!--                 Command="{Binding View1Command}"/> -->
+    <!--              -->
+    <!--             ~1~Getting style from static resources@1@ -->
+    <!--             <Button  -->
+    <!--                 Content="View 2" -->
+    <!--                 Margin="10" -->
+    <!--                 Style="{StaticResource ForestBtn}" -->
+    <!--                 Command="{Binding View2Command}"/> -->
+    <!--              -->
+    <!--             ~1~Manual Styling. We don't want this!@1@ -->
+    <!--             <Button  -->
+    <!--                 Content="View 3" -->
+    <!--                 Margin="10" -->
+    <!--                 Background="Red" -->
+    <!--                 Command="{Binding View3Command}"/> -->
+    <!--              -->
+    <!--             <Button  -->
+    <!--                 Content="View 4" -->
+    <!--                 Margin="10" -->
+    <!--                 Background="Blue" -->
+    <!--                 Command="{Binding View4Command}"/> -->
+    <!--         </StackPanel> -->
+    <!--     </Grid> -->
+    <!--      -->
+    <!--     ~1~Grid Splitter@1@ -->
+    <!--     <GridSplitter Grid.Column="1" Background="Black" Width="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" /> -->
+    <!-- -->
+    <!--     ~1~View@1@ -->
+    <!--     <Grid Grid.Column="2"> -->
+    <!--         <ContentControl -->
+    <!--             Content="{Binding CurrentView}"/> -->
+    <!--     </Grid> -->
+    <!-- </Grid> -->
 </Window>

@@ -4,9 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:vm="clr-namespace:WpfMvvmRelayView.ViewModel"
+             xmlns:icon = "http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300"
-             Background="Green">
+             Background="#EFF2F7">
     <UserControl.DataContext>
         <vm:View2VM/>
     </UserControl.DataContext>
@@ -16,7 +17,7 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="20"></RowDefinition>
             <RowDefinition/>
-            <RowDefinition Height="20"/> 
+            <RowDefinition Height="30"/> 
         </Grid.RowDefinitions>
         
         <Grid Row="0">
