@@ -16,12 +16,24 @@
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition/>
-            <RowDefinition Height="30"/> 
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/> 
         </Grid.RowDefinitions>
         
+        <!-- Page Title -->
+        <TextBlock Text="View 2" Grid.Row="1" FontSize="22" FontWeight="SemiBold" Margin="5 20 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
+        
+        <!-- Add Button -->
+        <Button Style="{StaticResource AddButton}">
+            <StackPanel Orientation="Horizontal">
+                <icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
+                <TextBlock Text="Add" FontWeight="SemiBold"></TextBlock>
+            </StackPanel>
+        </Button>
+        
+        <!--
         <Grid Row="0">
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="View 2 (ListView)"/>
         </Grid>
@@ -59,5 +71,6 @@
                     CommandParameter="{x:Reference tb}"/>
             </StackPanel>
         </Grid>
+        !-->
     </Grid>
 </UserControl>

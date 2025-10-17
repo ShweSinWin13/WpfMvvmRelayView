@@ -33,31 +33,38 @@
                             <Button Style="{StaticResource menuButton}" Command="{Binding View1Command}">
                                 <StackPanel Orientation="Horizontal">
                                     <icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="View 1"/>
+                                    <TextBlock Text="View 1" FontWeight="Bold"/>
                                 </StackPanel>
                             </Button>
 
                             <Button Style="{StaticResource menuButton}" Command="{Binding View2Command}">
                                 <StackPanel Orientation="Horizontal">
                                     <icon:PackIconMaterial Kind="BookEdit" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="View 2"/>
+                                    <TextBlock Text="View 2" FontWeight="Bold"/>
                                 </StackPanel>
                             </Button>
 
                             <Button Style="{StaticResource menuButton}" Command="{Binding View3Command}">
                                 <StackPanel Orientation="Horizontal">
                                     <icon:PackIconMaterial Kind="Account" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="View 3"/>
+                                    <TextBlock Text="View 3" FontWeight="Bold"/>
                                 </StackPanel>
                             </Button>
 
                             <Button Style="{StaticResource menuButton}" Command="{Binding View4Command}">
                                 <StackPanel Orientation="Horizontal">
                                     <icon:PackIconMaterial Kind="File" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="View 4"/>
+                                    <TextBlock Text="View 4" FontWeight="Bold"/>
                                 </StackPanel>
                             </Button>
                         </StackPanel>
+                        
+                        <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20">
+                            <StackPanel Orientation="Horizontal">
+                                <icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Logout" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
                     </DockPanel>
                 </Border>
             </Grid>

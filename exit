@@ -1,0 +1,41 @@
+[33mcommit 1fe2fa1c548ec3cb0f5b316b25300d800d9f6033[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mStylingView2[m[33m)[m
+Author: ShweSinWin13 <shwesinwin466@gmail.com>
+Date:   Fri Oct 17 15:41:13 2025 +0630
+
+    initial stage of styling in view2
+
+[33mcommit 793d5ee5c37a365c4c5cef4842e2bda4c47834fc[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: ShweSinWin13 <shwesinwin466@gmail.com>
+Date:   Fri Oct 17 14:40:45 2025 +0630
+
+    Styling Main Buttons
+
+[33mcommit 5cb30b77bc509f469491ba1bca6714de10dd1e59[m
+Author: ShweSinWin13 <shwesinwin466@gmail.com>
+Date:   Fri Oct 17 11:31:31 2025 +0630
+
+    Initial commit
+
+[33mcommit ddb0bf0af95c08636b818fdd64b2723e08be0058[m
+Author: Aye Chan Aung Thwin <ayechanaungthwin@gmail.com>
+Date:   Thu Oct 16 09:33:55 2025 +0700
+
+    DataGridStyle added for demo
+
+[33mcommit c295322ee6db8aea48b7e71dc73ea733e3fa4d1c[m
+Author: Aye Chan Aung Thwin <ayechanaungthwin@gmail.com>
+Date:   Wed Oct 15 14:10:01 2025 +0700
+
+    View4-TreeView added
+
+[33mcommit 894d54ff0e75acd0d12ae4c111cbb6a7939e11a9[m
+Author: Aye Chan Aung Thwin <ayechanaungthwin@gmail.com>
+Date:   Tue Oct 14 22:02:36 2025 +0700
+
+    updated 3 views
+
+[33mcommit 2b5edda8323c61a314bb914ebca6ece9f58a488b[m
+Author: Aye Chan Aung Thwin <ayechanaungthwin@gmail.com>
+Date:   Wed Sep 27 22:57:44 2023 +0630
+
+    first commit
