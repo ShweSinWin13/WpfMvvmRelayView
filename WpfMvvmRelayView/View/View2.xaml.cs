@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using System.Windows.Media;
 using WpfMvvmRelayView.ViewModel;
 
 namespace WpfMvvmRelayView.View
@@ -12,4 +13,6 @@ namespace WpfMvvmRelayView.View
             DataContext = view2Vm;
         }
     }
+
+    
 }

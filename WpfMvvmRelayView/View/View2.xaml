@@ -33,6 +33,35 @@
             </StackPanel>
         </Button>
         
+        <!-- List Data Grid -->
+        <DataGrid Grid.Row="2" Margin="0 10 0 0">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="C" CanUserResize="False" Width="Auto" ElementStyle="{StaticResource CheckBoxStyle1}">
+                    <DataGridCheckBoxColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <CheckBox Style="{StaticResource CheckBoxStyle1}"></CheckBox>
+                        </DataTemplate>
+                    </DataGridCheckBoxColumn.HeaderTemplate>
+                </DataGridCheckBoxColumn>
+                
+                <!-- List -->
+                <DataGridTemplateColumn Header="List" IsReadOnly="True" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Border Width="25" Height="25" CornerRadius="50" Margin="0 10 0 0" Background="{Binding BgColor}">
+                                    <TextBlock Text="{}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1"/>
+                                </Border>
+                                
+                                <TextBlock Text="" VerticalAlignment="Center"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        
         <!--
         <Grid Row="0">
             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="View 2 (ListView)"/>
