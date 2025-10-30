@@ -4,75 +4,103 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:vm="clr-namespace:WpfMvvmRelayView.ViewModel"
+             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:model="clr-namespace:WpfMvvmRelayView.Model"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300"
-             Background="Red">
+             d:DesignHeight="500" d:DesignWidth="500"
+             Background="#EFF2F7">
     <UserControl.DataContext>
-        <vm:View3VM/>
+        <vm:View3VM />
     </UserControl.DataContext>
-    
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition/>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-        <Grid Row="0">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="View 3 (DataGrid/Table)"/>
+
+        <Grid Row="0" x:Name="grdTitle" Margin="0 10 0 5">
+            <TextBlock Text="View 3 (DataGrid/Table)" FontSize="22" FontWeight="SemiBold" HorizontalAlignment="Left"
+                       Foreground="#121518" />
         </Grid>
-        
+
+        <!-- Button for Edit Menu -->
         <Grid Row="1">
-            <Menu>
-                <MenuItem
-                    Header="Edit (Menu)">
-                    <MenuItem
-                        Header="Read Only"
-                        IsCheckable="True"
-                        IsChecked="{Binding IsChecked}"
-                        Command="{Binding CheckCmd}"/>
-                    <MenuItem
-                        Header="Delete Selected"
-                        Command="{Binding DeleteCmd}"
-                        CommandParameter="{x:Reference dataGrid}"/>
-                </MenuItem>
-            </Menu>
+            <Button Style="{StaticResource addButton}" Click="ButtonBase_OnClick" HorizontalAlignment="Left"
+                    Width="100">
+                <StackPanel Orientation="Horizontal">
+                    <icon:PackIconMaterial Kind="FileEdit" Width="11" Height="11" Margin="0 1 8 0" />
+                    <TextBlock Text="Edit (Menu)" />
+                </StackPanel>
+                <Button.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Read Only"
+                                  IsCheckable="True"
+                                  IsChecked="{Binding IsChecked}"
+                                  Command="{Binding CheckCmd}" />
+                        <MenuItem Header="Delete Selected"
+                                  Command="{Binding DeleteCmd}"
+                                  CommandParameter="{x:Reference dataGrid}" />
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
         </Grid>
-        
-        <Grid Row="2">
-            <DataGrid
-                x:Name="dataGrid"
-                SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
-                CanUserSortColumns="False"
-                IsReadOnly="{Binding IsChecked, Mode=TwoWay}"
-                ItemsSource="{Binding Dt}"/>
+
+        <!-- View 3 DataGrid -->
+        <Grid Grid.Row="2" Margin="12,8,12,8">
+            <DataGrid x:Name="dataGrid"
+                      ItemsSource="{Binding Dt.DefaultView}"
+                      SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
+                      IsReadOnly="{Binding IsChecked, Mode=TwoWay}"
+                      AutoGenerateColumns="False"
+                      CanUserSortColumns="False"
+                      CanUserResizeRows="False"
+                      GridLinesVisibility="None"
+                      HeadersVisibility="Column"
+                      SelectionMode="Extended"
+                      SelectionUnit="FullRow"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="No" Binding="{Binding No}" Width="80" IsReadOnly="True" />
+                    <DataGridTextColumn Header="Name"
+                                        Binding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Width="*" />
+                    <DataGridTextColumn Header="Age"
+                                        Binding="{Binding Age, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Width="100" />
+                </DataGrid.Columns>
+            </DataGrid>
+
         </Grid>
-        
+
+
         <Grid Row="3">
             <StackPanel
                 Orientation="Vertical">
                 <StackPanel
                     Orientation="Horizontal">
                     <TextBlock
-                        Text="1. Name: "/>
+                        Text="1. Name: " />
                     <TextBox
                         Text="{Binding Name}"
-                        Width="50"/>
+                        Width="50" />
                 </StackPanel>
                 <StackPanel
                     Orientation="Horizontal">
                     <TextBlock
-                        Text="2. Age: "/>
+                        Text="2. Age: " />
                     <TextBox
                         Text="{Binding Age}"
-                        Width="50"/>
+                        Width="50" />
                 </StackPanel>
                 <Button
                     Content="Add"
                     Height="20"
-                    Command="{Binding AddCmd}"/>
+                    Command="{Binding AddCmd}" />
             </StackPanel>
         </Grid>
     </Grid>

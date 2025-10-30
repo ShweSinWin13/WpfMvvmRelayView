@@ -195,5 +195,7 @@ namespace WpfMvvmRelayView.ViewModel
 
             return sortedIndices;
         }
+        
+       
     }
 }

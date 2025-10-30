@@ -3,58 +3,78 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
              xmlns:vm="clr-namespace:WpfMvvmRelayView.ViewModel"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300"
-             Background="Green">
+             d:DataContext="{d:DesignInstance Type=vm:View2VM, IsDesignTimeCreatable=True}"
+             Height="500" Width="500"
+             Background="#EFF2F7">
     <UserControl.DataContext>
         <vm:View2VM/>
     </UserControl.DataContext>
     
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition/>
-            <RowDefinition Height="20"/> 
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        
+
         <Grid Row="0">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="View 2 (ListView)"/>
+            <!--Page Title-->
+            <TextBlock Text="View 2" FontWeight="SemiBold" FontSize="22" Margin="0 20 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
+
+            <!--Add Button-->
+            <Button Style="{StaticResource addButton}">
+                <StackPanel Orientation="Horizontal">
+                    <icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Margin="0 1 8 0" Width="11" Height="11"/>
+                    <TextBlock Text="ADD"/>
+                </StackPanel>
+            </Button>
         </Grid>
         
-        <Grid Row="1">
-            <Menu>
-                <MenuItem
-                    Header="Edit (Menu)">
-                    <MenuItem
-                        Header="Delete"
-                        Command="{Binding DeleteCmd}"
-                        CommandParameter="{x:Reference listView}">
-                    </MenuItem>
-                </MenuItem>
-            </Menu>
-        </Grid>
+        <!--Seprator-->
+        <Separator Height="1" Grid.Row="1" Background="#DAE2EA" Margin="0 10 0 0"/>
         
-        <Grid Row="2">
-            <ListView
-                x:Name="listView"
-                ItemsSource="{Binding Data}"
-                SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
-                SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"/>
-        </Grid>
+        <!--Data Grid-->
+        <Grid Grid.Row="2">
+            <DataGrid x:Name="DataGridXaml" HorizontalAlignment="Left" VerticalAlignment="Center" ItemsSource="{Binding Data}">
+                <!--Styling Columns-->
         
-        <Grid Row="3">
-            <StackPanel
-                Orientation="Horizontal">
-                <TextBox
-                    x:Name="tb"
-                    Width="100"/>
-                <Button
-                    Content="Add"
-                    Command="{Binding AddCmd}"
-                    CommandParameter="{x:Reference tb}"/>
-            </StackPanel>
+        
+                <!--Columns-->
+                <DataGrid.Columns>
+                    <!-- Name -->
+                    <DataGridTemplateColumn Header="Name" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                                    <Border Width="25" Height="25" CornerRadius="50" Margin="0 10 0 0" Background="{Binding BgColor}" >
+                                        <TextBlock Text="{Binding Character}"  VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1"/>
+                                    </Border>
+        
+                                    <TextBlock Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+        
+                    <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Style="{StaticResource gridEditButton}">
+                                        <icon:PackIconMaterial Kind="PencilOutline" Style="{StaticResource gridButtonIcon}"/>
+                                    </Button>
+                                    <Button Margin="5 0 0 0" Style="{StaticResource gridRemoveButton}">
+                                        <icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"/>
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </UserControl>

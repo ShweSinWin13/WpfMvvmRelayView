@@ -4,59 +4,99 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:WpfMvvmRelayView.ViewModel"
+        xmlns:icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:theme="clr-namespace:System.Windows.Annotations;assembly=PresentationFramework"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="500" Width="800">
     
     <Window.DataContext>
         <vm:MainVM/>
     </Window.DataContext>
     
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
-        
-        <!--Buttons-->
-        <Grid Grid.Column="0">
-            <StackPanel>
-                <!--Getting style from static resources-->
-                <Button 
-                    Content="View 1"
-                    Margin="10"
-                    Style="{StaticResource GoldenBtn}"
-                    Command="{Binding View1Command}"/>
-                
-                <!--Getting style from static resources-->
-                <Button 
-                    Content="View 2"
-                    Margin="10"
-                    Style="{StaticResource ForestBtn}"
-                    Command="{Binding View2Command}"/>
-                
-                <!--Manual Styling. We don't want this!-->
-                <Button 
-                    Content="View 3"
-                    Margin="10"
-                    Background="Red"
-                    Command="{Binding View3Command}"/>
-                
-                <Button 
-                    Content="View 4"
-                    Margin="10"
-                    Background="Blue"
-                    Command="{Binding View4Command}"/>
-            </StackPanel>
-        </Grid>
-        
-        <!--Grid Splitter-->
-        <GridSplitter Grid.Column="1" Background="Black" Width="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+    <Border CornerRadius="30" Background="#EFF2F7" MouseDown="Border_MouseDown" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/> <!-- column 0 -->
+                <ColumnDefinition Width="*"/>   <!-- column 1 -->
+            </Grid.ColumnDefinitions>
 
-        <!--View-->
-        <Grid Grid.Column="2">
-            <ContentControl
-                Content="{Binding CurrentView}"/>
+            <!-- Left Menu -->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Style="{StaticResource topButton}" HorizontalAlignment="Left" Margin="20 28 0 35">
+                    <icon:PackIconMaterial Kind="Menu" Width="15"/>
+                </Button>
+
+                
+                
+                <Border Grid.Row="1" Background="#623ED0" CornerRadius="0 25 0 30">
+                    <DockPanel>
+                        <!-- Logo -->
+                        <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="20 -30 0 0">
+                            <Ellipse>
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="Images/child.png"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Border>
+                        
+                        <!-- Menu Title -->
+                        <TextBlock Text="SKY K" Foreground="White" FontSize="20" FontWeight="SemiBold" DockPanel.Dock="Top" Margin="5 20 0 10" TextAlignment="Center"/>
+                        
+                        <!-- Menu Separator -->
+                        <Separator Margin="20" Background="#7E5FDC" DockPanel.Dock="Top" Height="0.8"/>
+                        
+                        <StackPanel DockPanel.Dock="Top">
+                            <Button Style="{StaticResource menuButton}" Command="{Binding View1Command}">
+                                <StackPanel Orientation="Horizontal">
+                                    <icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="View 1" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button Style="{StaticResource menuButton}" Command="{Binding View2Command}">
+                                <StackPanel Orientation="Horizontal">
+                                    <icon:PackIconMaterial Kind="BookEdit" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="View 2" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button Style="{StaticResource menuButton}" Command="{Binding View3Command}">
+                                <StackPanel Orientation="Horizontal">
+                                    <icon:PackIconMaterial Kind="Account" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="View 3" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button Style="{StaticResource menuButton}" Command="{Binding View4Command}">
+                                <StackPanel Orientation="Horizontal">
+                                    <icon:PackIconMaterial Kind="File" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="View 4" FontWeight="Bold"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        
+                        <Button Style="{StaticResource menuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0 15 20">
+                            <StackPanel Orientation="Horizontal">
+                                <icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Logout" FontWeight="Bold"/>
+                            </StackPanel>
+                        </Button>
+                    </DockPanel>
+                </Border>
+            </Grid>
+
+            <!-- Optional: a thin splitter between columns -->
+            <GridSplitter Grid.Column="0" HorizontalAlignment="Right" Width="4" Background="Transparent" VerticalAlignment="Stretch"/>
+
+            <!-- CONTENT: put in column 1 (second column) -->
+            <Grid Grid.Column="1">
+                <ContentControl Content="{Binding CurrentView}"/>
+            </Grid>
         </Grid>
-    </Grid>
+    </Border>
 </Window>
